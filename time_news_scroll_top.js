@@ -1,10 +1,12 @@
 'use strict';
 
-const timeNewsLabels = document.querySelectorAll('.TimeNews');
+const centerSection = document.querySelector('.CenterSection');
 const nav = document.querySelector('nav');
 
-for (let label of timeNewsLabels) {
-    label.addEventListener('click', () => {
-        window.scrollBy(0, label.getBoundingClientRect().y - nav.offsetHeight);
-    });
-}
+centerSection.addEventListener('click', function(event) {
+    let timeLabel = event.target;
+    if (!timeLabel.classList.contains('TimeNews')) return;
+
+    let y = timeLabel.getBoundingClientRect().top - nav.offsetHeight;
+    window.scrollBy(0, y);
+});

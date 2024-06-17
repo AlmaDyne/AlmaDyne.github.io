@@ -30,14 +30,12 @@
                 <a href="index.html" title="Главная страница">MAIN</a>
                 <a href="news.html" title="Новости проекта">NEWS</a>
                 <a href="music.html" title="Музыкальный контент">MUSIC</a>
-                <a href="info.html" title="О проекте">ABOUT</a>
+                <a href="info.html" title="О проекте" data-current>ABOUT</a>
                 <a href="info.html#ContactInfo" title="Контактная информация">CONTACT</a>
             </div>
         </nav>
         <main>
-            <aside>
-                <div class="AsideContainer"></div> <!-- Элемент удаляется после получения его высоты. -->
-            </aside>
+            <aside></aside>
             <article class="MainArticle">
                 <section class="CenterSection">
                     <div class="AboutProject">
@@ -78,7 +76,7 @@
                     <p></p>
                     <p></p>
                     <p></p>
-                    <form id="MailFormObject" action="mail_send_v1.php" method="post">
+                    <form id="MailFormObject" class="Closed" action="mail_send_v1.php" method="post">
                         <table class="MailFormTable">
                             <col width="48%">
                             <col width="4%">
@@ -124,11 +122,9 @@
                             </tfoot>
                         </table>
                     </form>
-                    <div class="ArrowTopPage Closed">
-                        <a class="ArrowTopPageBig" href="javascript:scroll(0,0)"><img src="img/IconArrowUpBig.png" 
-                            alt="Arrow Up" title="Наверх"></a>
-                        <a class="ArrowTopPageSmall" href="javascript:scroll(0,0)"><img src="img/IconArrowUpSmall.png" 
-                            alt="Arrow Up" title="Наверх"></a>
+                    <div class="ArrowTopPage Hidden">
+                        <img class="BigArrow" src="img/IconArrowUpBig.png" alt="Arrow Up" title="Наверх">
+                        <img class="SmallArrow" src="img/IconArrowUpSmall.png" alt="Arrow Up" title="Наверх">
                     </div>
                 </section>
                 <section class="RightSection"></section>
@@ -138,8 +134,9 @@
             <p>All rights reserved<br>&#169; <time datetime="2023">2023</time></p>
         </footer>
         <script src="preload.js"></script>
-        <script src="random_img.js"></script>
         <script src="mail_copy.js"></script>
-        <script src="mailform_open.js"></script>
+        <script src="random_img.js" type="module"></script>
+        <script src="mailform_open.js" type="module"></script>
+        <script src="arrow_top.js"></script>
     </body>
 </html>

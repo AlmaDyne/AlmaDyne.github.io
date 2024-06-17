@@ -28,16 +28,14 @@
         <nav>
             <div class="Navigation">
                 <a href="index.html" title="Главная страница">MAIN</a>
-                <a href="news.html" title="Новости проекта">NEWS</a>
+                <a href="news.html" title="Новости проекта" data-current>NEWS</a>
                 <a href="music.html" title="Музыкальный контент">MUSIC</a>
                 <a href="info.html" title="О проекте">ABOUT</a>
                 <a href="info.html#ContactInfo" title="Контактная информация">CONTACT</a>
             </div>
         </nav>
         <main>
-            <aside>
-                <div class="AsideContainer"></div> <!-- Элемент удаляется после получения его высоты. -->
-            </aside>
+            <aside></aside>
             <article class="MainArticle">
                 <section class="CenterSection">
                     <div class="News">
@@ -128,10 +126,8 @@
                             и подчиняется "законам" и музыкальной логике кинематографического жанра.</p>
                     </div>
                     <div class="ArrowTopPage">
-                        <a class="ArrowTopPageBig" href="javascript:scroll(0,0)"><img src="img/IconArrowUpBig.png" 
-                            alt="Arrow Up" title="Наверх"></a>
-                        <a class="ArrowTopPageSmall" href="javascript:scroll(0,0)"><img src="img/IconArrowUpSmall.png" 
-                            alt="Arrow Up" title="Наверх"></a>
+                        <img class="BigArrow" src="img/IconArrowUpBig.png" alt="Arrow Up" title="Наверх">
+                        <img class="SmallArrow" src="img/IconArrowUpSmall.png" alt="Arrow Up" title="Наверх">
                     </div>
                 </section>
                 <section class="RightSection"></section>
@@ -141,7 +137,8 @@
             <p>All rights reserved<br>&#169; <time datetime="2023">2023</time></p>
         </footer>
         <script src="preload.js"></script>
-        <script src="random_img.js"></script>
         <script src="time_news_scroll_top.js"></script>
+        <script src="random_img.js" type="module"></script>
+        <script src="arrow_top.js"></script>
     </body>
 </html>

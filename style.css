@@ -6,16 +6,16 @@ html {
 }
 
 body {
-    margin: 0 auto;
-    padding: 0;
     position: relative;
-    font: 17pt 'Times New Roman', Verdana, Tahoma, Arial, 'Trebuchet MS',
-        Garamond, Courier, Serif;
-    background: url("img/TextureBody.jpg") repeat-y fixed, #1e1e41;
-    background-blend-mode: luminosity;
     max-width: 1920px;
     min-width: 500px;
     min-height: 100%;
+    margin: 0 auto;
+    padding: 0;
+    font: 17pt 'Times New Roman', Verdana, Tahoma, Arial, 'Trebuchet MS',
+        Garamond, Courier, Serif;
+    background: url("img/TextureBody.jpg") repeat, #1e1e41;
+    background-blend-mode: luminosity;
 }
 
 .Preloader {
@@ -41,7 +41,7 @@ body {
     width: 40px;
     height: 40px;
     bottom: 0;
-    background:#812de0;
+    background: #812de0;
     border-radius: 50%;
     animation: PreloadCircleScale 1.5s ease-in-out infinite;
 }
@@ -49,7 +49,7 @@ body {
 .PreloadCircle:last-child {
     top: calc(50% - 40px/2);
     left: calc(50% - 40px/2);
-    background:#e222c2;
+    background: #e222c2;
     transform: scale(0);
     animation-delay: 0.75s;
 }
@@ -59,7 +59,7 @@ body {
     opacity: 0;
 }
 
-.loaded .Preloader {
+.ready .Preloader {
     display: none;
 }
 
@@ -132,8 +132,8 @@ header {
     background-blend-mode: screen;
     border-bottom: 1px solid #7c81e2;
     box-sizing: border-box;
-    clip-path: circle(0 at calc(100vw - 115px) 90px);
-    transform-origin: calc(100vw - 115px) 90px 0;
+    clip-path: circle(0 at 520px 40px);
+    transform-origin: 520px 40px 0;
     filter: blur(1px) brightness(1) saturate(1);
     
 }
@@ -149,8 +149,8 @@ header {
     background-blend-mode: screen;
     border-bottom: 1px solid #7c81e2;
     box-sizing: border-box;
-    clip-path: circle(0 at calc(100vw - 115px) 90px);
-    transform-origin: calc(100vw - 115px) 90px 0;
+    clip-path: circle(0 at 520px 40px);
+    transform-origin: 520px 40px 0;
     filter: blur(3px) brightness(1.1) saturate(1.1);
 }
 
@@ -262,7 +262,7 @@ aside, .RightSection {
     display: block; /* Заменяет "display: flex" от селектора "aside, .RightSection" */
 }
 
-.AsideContainer, .RightImgContainer {
+.ImgContainer {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -270,7 +270,7 @@ aside, .RightSection {
     padding: 30px 0;
 }
 
-.RightImgContainer {
+.RightSection .ImgContainer {
     width: 70%;
 }
 
@@ -287,12 +287,12 @@ aside, .RightSection {
     height: 70px; /* Равно высоте TextOrnament */
 }
 
-.AsideImg, .RightImg, .FigCover img, .RightImgCover {
+.SideImg, .FigCover img, .RightImgCover {
     max-width: 100%;
     max-height: 100%;
 }
 
-.AsideImg, .RightImg {
+.SideImg{
     opacity: 0.7;
     filter: sepia(0.3);
 }
@@ -384,10 +384,11 @@ aside:hover, .MainArticle:hover, .Navigation a:hover, .RightImgCover:hover, .Aut
 }
 
 .CenterSection {
-    display: block;
     position: relative;
-    margin: 30px 0 30px 9.5%;
+    margin-left: 9.5%;
+    padding: 30px 0;
     width: 55%;
+    height: fit-content;
     min-width: 192px;
     text-align: center;
     word-wrap: break-word;
@@ -463,6 +464,17 @@ aside:hover, .MainArticle:hover, .Navigation a:hover, .RightImgCover:hover, .Aut
     transition: transform 0.25s;
 }
 
+.InvisibleDIV {
+    position: absolute;
+    left: calc(50% - 75%/2);
+    top: 24px;
+    width: 75%;
+    height: 472px;
+    background: transparent;
+    border: 2px solid transparent;
+    border-radius: 5px;
+}
+
 .News, .AboutProject {
     font-size: 15pt;
     text-align: justify;
@@ -518,7 +530,8 @@ aside:hover, .MainArticle:hover, .Navigation a:hover, .RightImgCover:hover, .Aut
 
 #ContactInfo .CopyMessage {
     position: absolute;
-    min-width: 130px;
+    margin-top: 5px;
+    min-width: 108px;
     color: #00ad34;
     opacity: 0;
 }
@@ -538,15 +551,15 @@ aside:hover, .MainArticle:hover, .Navigation a:hover, .RightImgCover:hover, .Aut
     top: -70px; /* Зависит от высоты nav */
 }
 
-#MailFormObject, .ArrowTopPage.Closed {
+#MailFormObject.Closed, .ArrowTopPage.Hidden {
     display: none;
 }
 
-#MailFormObject.Open, .ArrowTopPage.Open {
+#MailFormObject.Open, .ArrowTopPage.Visible {
     display: block;
     animation-name: FadeIn;
     animation-fill-mode: both;
-    animation-duration: 1s;
+    animation-duration: 1000ms;
 }
 
 .MailFormTable {
@@ -715,23 +728,24 @@ li ~ li {
 .ArrowTopPage {
     padding-top: 36px;
 }
-.ArrowTopPageBig {
-    display: inline-block;
-    height: 50px; width: 50px;
+.ArrowTopPage > img {
     filter: invert(50%) brightness(75%);
     border-radius: 50%;
-    box-shadow: 2px 2px 3px rgba(56, 64, 66, 0.3);
+    cursor: pointer;
 }
-.ArrowTopPageSmall {
-    display: none;
-    height: 34px; width: 34px;
-    filter: invert(50%) brightness(75%);
-    border-radius: 50%;
-    box-shadow: 2px 2px 3px rgba(56, 64, 66, 0.3);
-}
-.ArrowTopPageBig:hover, .ArrowTopPageSmall:hover {
+.ArrowTopPage > img:hover {
     filter: invert(50%) brightness(50%);
     box-shadow: 2px 2px 3px rgba(47, 52, 53, 0.5);
+}
+.BigArrow {
+    display: inline-block;
+    height: 50px; width: 50px;
+    box-shadow: 2px 2px 3px rgba(56, 64, 66, 0.3);
+}
+.SmallArrow {
+    display: none;
+    height: 34px; width: 34px;
+    box-shadow: 2px 2px 3px rgba(56, 64, 66, 0.3);
 }
 
 footer::before { /* Для изменений только фона */
@@ -828,74 +842,74 @@ footer p {
 
 @keyframes HeaderEmblem1Animation_BigScreen {
     0% {
-        clip-path: circle(0 at calc(100vw - 115px) 90px);
+        clip-path: circle(0 at 520px 40px);
         filter: blur(1px) brightness(1) saturate(1);
     }
     25% {
         filter: blur(5px) brightness(1.1) saturate(1.1);
     }
     50% {
-        clip-path: circle(75px at calc(100vw - 115px) 90px);
+        clip-path: circle(75px at 520px 40px);
         filter: blur(2px) brightness(1) saturate(1.05);
     }
     100% {
-        clip-path: circle(75px at calc(100vw - 115px) 90px);
+        clip-path: circle(75px at 520px 40px);
         filter: blur(1px) brightness(1) saturate(1);
     }
 }
 
 @keyframes HeaderEmblem2Animation_BigScreen {
     0% {
-        clip-path: circle(0 at calc(100vw - 115px) 90px);
+        clip-path: circle(0 at 520px 40px);
         filter: blur(4px) brightness(1.1) saturate(1.1);
     }
     10% {
-        clip-path: circle(0 at calc(100vw - 115px) 90px);
+        clip-path: circle(0 at 520px 40px);
         filter: blur(4px) brightness(1.1) saturate(1.1);
     }
     50% {
-        clip-path: circle(75px at calc(100vw - 115px) 90px);
+        clip-path: circle(75px at 520px 40px);
         filter: blur(2px) brightness(1) saturate(1.05);
     }
     100% {
-        clip-path: circle(75px at calc(100vw - 115px) 90px);
+        clip-path: circle(75px at 520px 40px);
         filter: blur(1px) brightness(1) saturate(1);
     }
 }
 
 @keyframes HeaderEmblem1Animation_SmallScreen {
     0% {
-        clip-path: circle(0 at calc(100vw - 87px) calc(124px / 2)); /* Зависит от высоты header::before */
+        clip-path: circle(0 at 324px 25px); /* Зависит от высоты header::before */
         filter: blur(1px) brightness(1) saturate(1);
     }
     25% {
         filter: blur(4px) brightness(1.1) saturate(1.2);
     }
     50% {
-        clip-path: circle(47px at calc(100vw - 87px) calc(124px / 2)); /* Зависит от высоты header::before */
+        clip-path: circle(47px at 324px 25px); /* Зависит от высоты header::before */
         filter: blur(2px) brightness(1) saturate(1.05);
     }
     100% {
-        clip-path: circle(47px at calc(100vw - 87px) calc(124px / 2)); /* Зависит от высоты header::before */
+        clip-path: circle(47px at 324px 25px); /* Зависит от высоты header::before */
         filter: blur(1px) brightness(1) saturate(1);
     }
 }
 
 @keyframes HeaderEmblem2Animation_SmallScreen {
     0% {
-        clip-path: circle(0 at calc(100vw - 87px) calc(124px / 2)); /* Зависит от высоты header::before */
+        clip-path: circle(0 at 324px 25px); /* Зависит от высоты header::before */
         filter: blur(4px) brightness(1.1) saturate(1.2);
     }
     10% {
-        clip-path: circle(0 at calc(100vw - 87px) calc(124px / 2)); /* Зависит от высоты header::before */
+        clip-path: circle(0 at 324px 25px); /* Зависит от высоты header::before */
         filter: blur(4px) brightness(1.1) saturate(1.2);
     }
     50% {
-        clip-path: circle(47px at calc(100vw - 87px) calc(124px / 2)); /* Зависит от высоты header::before */
+        clip-path: circle(47px at 324px 25px); /* Зависит от высоты header::before */
         filter: blur(2px) brightness(1) saturate(1.05);
     }
     100% {
-        clip-path: circle(47px at calc(100vw - 87px) calc(124px / 2)); /* Зависит от высоты header::before */
+        clip-path: circle(47px at 324px 25px); /* Зависит от высоты header::before */
         filter: blur(1px) brightness(1) saturate(1);
     }
 }
@@ -903,7 +917,7 @@ footer p {
 @media screen and (max-width: 1400px) {
     .TimeNews {
         font-size: 12pt;
-        margin-top: 7px;
+        margin-top: 6px;
     }
 }
 
@@ -923,12 +937,12 @@ footer p {
         width: 366px;
     }
     .HeaderEmblem1 {
-        clip-path: circle(0 at calc(100vw - 87px) calc(124px / 2)); /* Зависит от высоты header::before */
-        transform-origin: calc(100vw - 87px) calc(124px / 2) 0; /* Зависит от высоты header::before */
+        clip-path: circle(0 at 324px 25px); /* Зависит от высоты header::before */
+        transform-origin: 324px 25px 0; /* Зависит от высоты header::before */
     }
     .HeaderEmblem2 {
-        clip-path: circle(0 at calc(100vw - 87px) calc(124px / 2)); /* Зависит от высоты header::before */
-        transform-origin: calc(100vw - 87px) calc(124px / 2) 0; /* Зависит от высоты header::before */
+        clip-path: circle(0 at 324px 25px); /* Зависит от высоты header::before */
+        transform-origin: 324px 25px 0; /* Зависит от высоты header::before */
     }
     .ready .HeaderEmblem1 {
         animation: HeaderEmblem1Animation_SmallScreen 3s linear infinite;
@@ -955,7 +969,7 @@ footer p {
     .TimeNews {
         margin-left: -9%;
         font-size: 10pt;
-        margin-top: 6px;
+        margin-top: 4px;
     }
     .CenterContainer p, .News p, .AboutProject p, .MailFormTable {
         font-size: 13pt;
@@ -1038,10 +1052,10 @@ footer p {
     .RightColumn ol {
         height: 546px;
     }
-    .ArrowTopPageBig {
+    .BigArrow {
         display: none;
     }
-    .ArrowTopPageSmall {
+    .SmallArrow {
         display: inline-block;
     }
 }

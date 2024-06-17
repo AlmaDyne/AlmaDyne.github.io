@@ -29,7 +29,7 @@
             <div class="Navigation">
                 <a href="index.html" title="Главная страница">MAIN</a>
                 <a href="news.html" title="Новости проекта">NEWS</a>
-                <a href="music.html" title="Музыкальный контент">MUSIC</a>
+                <a href="music.html" title="Музыкальный контент" data-current>MUSIC</a>
                 <a href="info.html" title="О проекте">ABOUT</a>
                 <a href="info.html#ContactInfo" title="Контактная информация">CONTACT</a>
             </div>
@@ -89,7 +89,7 @@
                     <div class="MusicAlbum">
                         <span class="AnchorMA" id="MA4"></span>
                         <span class="PlayArrow PlayMA4">▷</span>
-                        <iframe class="PlayerAlbum4" src="https://bandcamp.com/EmbeddedPlayer/album=1342537401/size=large/bgcol=333333/linkcol=7137dc/artwork=small/transparent=true/" seamless><a href="https://almadyne.bandcamp.com/album/by-eidos">By Eidos by AlmaDyne</a></iframe>
+                        <iframe id="PlayerAlbum4" src="https://bandcamp.com/EmbeddedPlayer/album=1342537401/size=large/bgcol=333333/linkcol=7137dc/artwork=small/transparent=true/" seamless><a href="https://almadyne.bandcamp.com/album/by-eidos">By Eidos by AlmaDyne</a></iframe>
                     </div>
                     <div class="TextOrnament LowLine">
                         <img class="ImgTextOrnament" src="img/TextOrnament.png" alt="Ornament">
@@ -97,7 +97,7 @@
                     <div class="MusicAlbum">
                         <span class="AnchorMA" id="MA3"></span>
                         <span class="PlayArrow PlayMA3">▷</span>
-                        <iframe class="PlayerAlbum3" src="https://bandcamp.com/EmbeddedPlayer/album=4269963281/size=large/bgcol=333333/linkcol=7137dc/artwork=small/transparent=true/" seamless><a href="https://almadyne.bandcamp.com/album/fane-of-soul">Fane of Soul by AlmaDyne</a></iframe>
+                        <iframe id="PlayerAlbum3" src="https://bandcamp.com/EmbeddedPlayer/album=4269963281/size=large/bgcol=333333/linkcol=7137dc/artwork=small/transparent=true/" seamless><a href="https://almadyne.bandcamp.com/album/fane-of-soul">Fane of Soul by AlmaDyne</a></iframe>
                     </div>
                     <div class="TextOrnament LowLine">
                         <img class="ImgTextOrnament" src="img/TextOrnament.png" alt="Ornament">
@@ -105,7 +105,7 @@
                     <div class="MusicAlbum">
                         <span class="AnchorMA" id="MA2"></span>
                         <span class="PlayArrow PlayMA2">▷</span>
-                        <iframe class="PlayerAlbum2" src="https://bandcamp.com/EmbeddedPlayer/album=4131563046/size=large/bgcol=333333/linkcol=7137dc/artwork=small/transparent=true/" seamless><a href="https://almadyne.bandcamp.com/album/unearthed-fortune">Unearthed Fortune by AlmaDyne</a></iframe>
+                        <iframe id="PlayerAlbum2" src="https://bandcamp.com/EmbeddedPlayer/album=4131563046/size=large/bgcol=333333/linkcol=7137dc/artwork=small/transparent=true/" seamless><a href="https://almadyne.bandcamp.com/album/unearthed-fortune">Unearthed Fortune by AlmaDyne</a></iframe>
                     </div>
                     <div class="TextOrnament LowLine">
                         <img class="ImgTextOrnament" src="img/TextOrnament.png" alt="Ornament">
@@ -113,13 +113,11 @@
                     <div class="MusicAlbum">
                         <span class="AnchorMA" id="MA1"></span>
                         <span class="PlayArrow PlayMA1">▷</span>
-                        <iframe class="PlayerAlbum1" src="https://bandcamp.com/EmbeddedPlayer/album=2730024597/size=large/bgcol=333333/linkcol=7137dc/artwork=small/transparent=true/" seamless><a href="https://almadyne.bandcamp.com/album/revolted-gyres">Revolted Gyres by AlmaDyne</a></iframe>
+                        <iframe id="PlayerAlbum1" src="https://bandcamp.com/EmbeddedPlayer/album=2730024597/size=large/bgcol=333333/linkcol=7137dc/artwork=small/transparent=true/" seamless><a href="https://almadyne.bandcamp.com/album/revolted-gyres">Revolted Gyres by AlmaDyne</a></iframe>
                     </div>
                     <div class="ArrowTopPage">
-                        <a class="ArrowTopPageBig" href="javascript:scroll(0,0)"><img src="img/IconArrowUpBig.png" 
-                            alt="Arrow Up" title="Наверх"></a>
-                        <a class="ArrowTopPageSmall" href="javascript:scroll(0,0)"><img src="img/IconArrowUpSmall.png" 
-                            alt="Arrow Up" title="Наверх"></a>
+                        <img class="BigArrow" src="img/IconArrowUpBig.png" alt="Arrow Up" title="Наверх">
+                        <img class="SmallArrow" src="img/IconArrowUpSmall.png" alt="Arrow Up" title="Наверх">
                     </div>
                 </section>
                 <section class="RightSection MusicPageImgSide">
@@ -179,6 +177,7 @@
         </footer>
         <script src="preload.js"></script>
         <script src="play.js"></script>
+        <script src="arrow_top.js"></script>
         <!--<script src="rightcol_open_close.js"></script>-->
     </body>
 </html>
