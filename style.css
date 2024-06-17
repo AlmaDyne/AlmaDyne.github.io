@@ -76,6 +76,13 @@ h3 {
     margin-left: 17px;
 }
 
+header {
+    position: relative;
+    white-space: nowrap;
+    text-align: left;
+    padding-left: 25px;
+}
+
 header::before { /* Для изменений только фона */
     content: '';
     position: absolute;
@@ -90,13 +97,6 @@ header::before { /* Для изменений только фона */
     box-sizing: border-box;
     filter: blur(1px);
 } 
-
-header {
-    position: relative;
-    white-space: nowrap;
-    text-align: left;
-    padding-left: 25px;
-}
 
 .MainHeader {
     position: relative;
@@ -164,6 +164,14 @@ header {
     animation-delay: 2.5s;
 }
 
+nav {
+    height: 70px;
+    margin: 25px 0;
+    position: sticky;
+    top: 0;
+    z-index: 1;
+}
+
 nav::before { /* Для изменений только фона */
     content: '';
     position: absolute;
@@ -171,14 +179,6 @@ nav::before { /* Для изменений только фона */
     z-index: -1;
     background: url("img/TextureSandMonochrome.jpg"), linear-gradient(10deg, #cc7fff, #fff6df, #cc7fff);
     background-blend-mode: soft-light;
-}
-
-nav {
-    height: 70px;
-    margin: 25px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1;
 }
 
 .Navigation {
@@ -227,6 +227,13 @@ main {
     padding-bottom: 81px;
 }
 
+aside {
+    position: relative;
+    margin-left: 25px;
+    width: 20%;
+    border-radius: 20px;
+}
+
 aside::before { /* Для изменений только фона */
     content: '';
     position: absolute;
@@ -236,13 +243,6 @@ aside::before { /* Для изменений только фона */
     background-blend-mode: soft-light;
     border-radius: 20px;
     filter: opacity(75%);
-}
-
-aside {
-    position: relative;
-    margin-left: 25px;
-    width: 20%;
-    border-radius: 20px;
 }
 
 .RightSection {
@@ -360,6 +360,14 @@ aside:hover, .MainArticle:hover, .Navigation a:hover, .RightImgCover:hover, .Aut
     transition: transform 0.25s;
 }
 
+.MainArticle {
+    display: flex;
+    position: relative;
+    margin: 0 25px;
+    width: 77%;
+    border-radius: 20px;
+}
+
 .MainArticle::before { /* Для изменений только фона */
     content: '';
     position: absolute;
@@ -369,14 +377,6 @@ aside:hover, .MainArticle:hover, .Navigation a:hover, .RightImgCover:hover, .Aut
     background-blend-mode: soft-light;
     border-radius: 20px;
     filter: opacity(75%);
-}
-
-.MainArticle {
-    display: flex;
-    position: relative;
-    margin: 0 25px;
-    width: 77%;
-    border-radius: 20px;
 }
 
 .MainArticle:focus-within {
@@ -748,6 +748,13 @@ li ~ li {
     box-shadow: 2px 2px 3px rgba(56, 64, 66, 0.3);
 }
 
+footer {
+    position: absolute;
+    left: 0; bottom: 0;
+    width: 100%;
+    height: 56px;
+}
+
 footer::before { /* Для изменений только фона */
     content: '';
     position: absolute;
@@ -761,13 +768,6 @@ footer::before { /* Для изменений только фона */
     background-size: 100% 400%, auto, auto;
     background-blend-mode: soft-light;
     filter: brightness(1.5) contrast(0.8);
-}
-
-footer {
-    position: absolute;
-    left: 0; bottom: 0;
-    width: 100%;
-    height: 56px;
 }
 
 footer p {
