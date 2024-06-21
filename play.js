@@ -47,7 +47,7 @@
     centerSection.addEventListener('mouseout', function(event) {
         const player = event.relatedTarget;
 
-        if (player.matches('iframe[id^="PlayerAlbum"]') && centerSection.contains(player)) {
+        if (player && player.matches('iframe[id^="PlayerAlbum"]')) {
             counter++;
             console.log('Указатель мыши перешёл на плеер, раз: ' + counter);
         }
